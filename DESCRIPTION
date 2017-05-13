@@ -10,6 +10,7 @@ Authors@R: person("Jeffrey", "Arnold", role = c("aut", "cre"), email = "jeffrey.
 Depends:
   R (>= 3.0.0)
 Imports:
+  assertthat,
   dplyr,
   purrr,
   rstan,
