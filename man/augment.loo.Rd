@@ -4,7 +4,7 @@
 \alias{augment.loo}
 \alias{glance.loo}
 \alias{tidy.loo}
-\title{Tidying methods for}
+\title{loo tidiers}
 \usage{
 augment.loo(x, data = NULL, ...)
 

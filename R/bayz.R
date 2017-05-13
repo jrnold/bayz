@@ -1,4 +1,4 @@
-#' Tidying methods for
+#' loo tidiers
 #'
 #' Methods for tidying the results from from WAIC and LOO cross-validation methods in the \pkg{loo} package.
 #'
