@@ -5,7 +5,7 @@
 \alias{autoscale.numeric}
 \alias{autoscale.logical}
 \alias{autoscale.matrix}
-\alias{autoscale.data_frame}
+\alias{autoscale.data.frame}
 \title{Center and Scale}
 \usage{
 autoscale(x, ...)
@@ -16,7 +16,7 @@ autoscale(x, ...)
 
 \method{autoscale}{matrix}(x, center = TRUE, scale = TRUE, ...)
 
-\method{autoscale}{data_frame}(x, center = TRUE, scale = TRUE, ...)
+\method{autoscale}{data.frame}(x, center = TRUE, scale = TRUE, ...)
 }
 \arguments{
 \item{x}{object}

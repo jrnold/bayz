@@ -66,7 +66,7 @@ autoscale.matrix <- function(x, center = TRUE, scale = TRUE, ...) {
 
 #' @rdname autoscale
 #' @export
-autoscale.data_frame <- function(x, center = TRUE, scale = TRUE, ...) {
-  dplyr::mutate_if(is.numeric, autoscale.numeric, center = center,
-                   scale = scale)
+autoscale.data.frame <- function(x, center = TRUE, scale = TRUE, ...) {
+  dplyr::mutate_if(x, is.numeric, autoscale.numeric, 
+                   center = center, scale = scale)
 }
