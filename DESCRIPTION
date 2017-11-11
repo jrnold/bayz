@@ -13,8 +13,11 @@ Imports:
   assertthat,
   dplyr,
   purrr,
+  rlang,
   rstan,
+  stringr,
   tibble
 Suggests:
-  broom
+  broom,
+  testthat
 RoxygenNote: 6.0.1
