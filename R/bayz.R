@@ -1,13 +1,19 @@
 #' loo tidiers
 #'
-#' Methods for tidying the results from from WAIC and LOO cross-validation methods in the \pkg{loo} package.
+#' Methods for tidying the results from from WAIC and LOO cross-validation
+#' methods in the \pkg{loo} package.
 #'
 #' @param x an \code{\link[loo]{loo}} object
+#'
 #' @param data Data frame with the original data
+#'
 #' @param ... Not used currently
 #'
-#' @return \code{augment.loo} returns a data frame, with one row per observation and the pointwise elpd, elpd standard error, and estimated number of observations.
+#' @return \code{augment.loo} returns a data frame, with one row per observation
+#' and the pointwise elpd, elpd standard error, and estimated number of observations.
+#'
 #' @export
+#'
 #' @importFrom tibble as_tibble
 augment.loo <- function(x, data = NULL, ...) {
   out <- as_tibble(x$pointwise)
@@ -25,7 +31,7 @@ augment.loo <- function(x, data = NULL, ...) {
 #' @return \code{glance.loo} returns a one row data frame with the columns
 #'   \item{\code{elpd_loo},\code{elpd_waic}}{Expected log pointwise predictive density}
 #'   \item{\code{se_elpd_loo},\code{se_elpd_waic}}{Standard error of the log pointwise predictive density}
-#'   \item{\code{se_looic}, \code{see_waic}}{LOO information criterion (\code{-2 * elpd_loo}), or WAI, i.e. converted to the deviance scance}
+#'   \item{\code{se_looic}, \code{see_waic}}{LOO information criterion (\code{-2 * elpd_loo}), or WAIC, i.e. converted to the deviance scale}
 #'   \item{\code{p_loo}, \code{p_waic}}{Estimated effective number of parameters}
 #'   \item{\code{se_p_loo}, \code{se_p_waic}}{Standard error of the estimated effective number of parameters}
 #'   \item{\code{n}}{Number of observations}
@@ -40,7 +46,7 @@ glance.loo <- function(x, ...) {
 
 #' @rdname augment.loo
 #' @return A data frame with columns:
-#'    \item{\code{parameter}}{Paramter: elpd_loo or elpd_waic, p_loo or p_waic, or waic or looic}
+#'    \item{\code{parameter}}{Parameter: elpd_loo or elpd_waic, p_loo or p_waic, or waic or looic}
 #'    \item{\code{estimate}}{Parameter value}
 #'    \item{\code{std.error}}{Standard error of the parameter}
 #' @importFrom tibble tibble
@@ -83,10 +89,12 @@ is.stanreg <- function(x) inherits(x, "stanreg")
 #' Coerce \code{stanfit} object to list of iterations
 #'
 #' Extract the parameters from a \code{\link[rstan]{stanfit}} object and coerce them into
-#' a list in which each element is a list of the paramters in their original dimenstions.
+#' a list in which each element is a list of the parameters in their original dimenstions.
 #'
 #' @inheritParams rstan::extract
-#' @return A list. Each element representas an iteraction, and is a named list in which the names are parameters, and the elments are numeric arrays with the parameters in their original dimensions.
+#' @return A list. Each element is a named list representing an iteration.
+#'  The names of the list which the names are parameters,
+#'  and the elements are numeric arrays with the parameters in their original dimensions.
 stan_iter <- function(object, permuted = FALSE, inc_warmup = FALSE) {
   if (is.stanreg(object)) {
     object <- object$stanfit

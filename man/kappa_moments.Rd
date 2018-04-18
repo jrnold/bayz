@@ -12,7 +12,7 @@ meff_moments(tau, sigma = 1, n = 1, D = 1)
 \arguments{
 \item{tau}{Numeric. The global scale parameter.}
 
-\item{sigma}{Numeric. The observation disturbance scale paramter.}
+\item{sigma}{Numeric. The observation disturbance scale parameter.}
 
 \item{n}{Integer. The number of observations.}
 
@@ -27,7 +27,7 @@ meff_moments(tau, sigma = 1, n = 1, D = 1)
 }
 }
 \description{
-Means and variances for the shinkage parameter, \eqn{kappa}, and
+Means and variances for the shrinkage parameter, \eqn{kappa}, and
 the number of effective parameters, \eqn{m_{eff}}, in regression
 problems using scale-mixture of normal shrinkage priors.
 }

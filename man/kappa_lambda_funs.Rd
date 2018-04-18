@@ -4,7 +4,7 @@
 \alias{kappa_lambda_funs}
 \alias{kappa_tau_funs}
 \alias{kappa_sigma_funs}
-\title{Shinkage parameter functions}
+\title{Shrinkage parameter functions}
 \usage{
 kappa_lambda_funs(tau = 1, sigma = 1, n = 1)
 
@@ -30,8 +30,8 @@ Generate functions of the shrinkage parameter,
 \kappa_j = \frac{1}{1 + n \sigma^{-1} \tau^2 \lambda_j^2} ,
 }
 with respect to lambda, sigma, or tau, as well as the inverse functions
-and derivatives of the inverse functions (with respect to scale, variance, or precisition).
+and derivatives of the inverse functions (with respect to scale, variance, or precision).
 These functions can be used in a transformation of variables, to generate
 the density of the probability of distribution of kappa given the probability
-distributuion of lambda, sigma, or tau.
+distribution of lambda, sigma, or tau.
 }

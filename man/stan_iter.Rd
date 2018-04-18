@@ -20,9 +20,11 @@ stan_iter(object, permuted = FALSE, inc_warmup = FALSE)
     \code{FALSE}.}
 }
 \value{
-A list. Each element representas an iteraction, and is a named list in which the names are parameters, and the elments are numeric arrays with the parameters in their original dimensions.
+A list. Each element is a named list representing an iteration.
+ The names of the list which the names are parameters,
+ and the elements are numeric arrays with the parameters in their original dimensions.
 }
 \description{
 Extract the parameters from a \code{\link[rstan]{stanfit}} object and coerce them into
-a list in which each element is a list of the paramters in their original dimenstions.
+a list in which each element is a list of the parameters in their original dimenstions.
 }
