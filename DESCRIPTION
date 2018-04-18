@@ -6,7 +6,8 @@ Description: Miscellaneous Bayesian-related functions.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Authors@R: person("Jeffrey", "Arnold", role = c("aut", "cre"), email = "jeffrey.arnold@gmail.com")
+Authors@R: c(person("Jeffrey", "Arnold", role = c("aut", "cre"), 
+                    email = "jeffrey.arnold@gmail.com"))
 Depends:
   R (>= 3.0.0)
 Imports:
