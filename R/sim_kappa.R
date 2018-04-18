@@ -19,7 +19,6 @@ fun_or_rep <- function(f, n) {
 #' @param D The number of parameters
 #' @param sims The number of samples to draw.
 #' @return A numeric vector of samples
-#' @references
 #' @export
 sim_meff <- function(lambda, tau = 1, sigma = 1, D = 1, n = 1,
                      sims = 1000) {

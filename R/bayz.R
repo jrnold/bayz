@@ -63,47 +63,5 @@ tidy.loo <- function(x, ...) {
                 x[[paste0("se_", ic)]]))
 }
 
-
-# From rstan:::create_skeleton
-create_skeleton <- function (pars, dims) {
-  lst <- lapply(seq_along(pars), function(i) {
-    len_dims <- length(dims[[i]])
-    if (len_dims < 1)
-      return(0)
-    return(array(0, dim = dims[[i]]))
-  })
-  names(lst) <- pars
-  lst
-}
-
-# From rstan:::rstan_relist
-rstan_relist <- function (x, skeleton) {
-  lst <- utils::relist(x, skeleton)
-  for (i in seq_along(skeleton)) dim(lst[[i]]) <- dim(skeleton[[i]])
-  lst
-}
-
 # From rstan::is.stanreg
 is.stanreg <- function(x) inherits(x, "stanreg")
-
-#' Coerce \code{stanfit} object to list of iterations
-#'
-#' Extract the parameters from a \code{\link[rstan]{stanfit}} object and coerce them into
-#' a list in which each element is a list of the parameters in their original dimenstions.
-#'
-#' @inheritParams rstan::extract
-#' @return A list. Each element is a named list representing an iteration.
-#'  The names of the list which the names are parameters,
-#'  and the elements are numeric arrays with the parameters in their original dimensions.
-stan_iter <- function(object, permuted = FALSE, inc_warmup = FALSE) {
-  if (is.stanreg(object)) {
-    object <- object$stanfit
-  }
-  pars <- rstan::extract(object, permuted = permuted,
-                         inc_warmup = inc_warmup)
-  nchains <- ncol(pars)
-  skeleton <- create_skeleton(object@model_pars, object@par_dims)
-  purrr::map(purrr::array_branch(pars, 1:2), function(theta) {
-    rstan_relist(theta, skeleton)
-  })
-}
