@@ -20,6 +20,7 @@ Imports:
 Suggests:
     spelling,
   broom,
-  testthat
+  testthat,
+    covr
 RoxygenNote: 6.0.1
 Language: en-US
