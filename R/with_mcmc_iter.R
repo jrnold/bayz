@@ -23,17 +23,24 @@ with_mcmc_iter <- function(object, ...) {
   UseMethod("with_mcmc_iter")
 }
 
-#' @importFrom rlang UQS eval_tidy enquo base_env
+#' @importFrom rlang eval_tidy enquo base_env as_environment as_data_pronoun
+#' @importFrom rlang new_data_mask
 #' @rdname with_mcmc_iter
 #' @export
 with_mcmc_iter.stanfit <- function(object, expr, permuted = FALSE,
                                    inc_warmup = FALSE, data = list(),
                                    env = rlang::base_env(), ...) {
+  data <- as_environment(data)
   pars <- rstan::extract(object, permuted = permuted, inc_warmup = inc_warmup)
   expr <- enquo(expr)
   unflattener <- unflatten_pars(object)
   map(purrr::array_branch(pars, 1:2), function(x) {
-    dat <- purrr::list_merge(data, UQS(unflattener(x)))
-    eval_tidy(expr, data = dat)
+    pars <- as_environment(unflattener(x))
+    parent.env(data) <- pars
+    mask <- new_data_mask(data, parent.env(data))
+    mask$.data <- as_data_pronoun(data)
+    mask$.pars <- as_data_pronoun(pars)
+    eval_tidy(expr, data = mask)
   })
 }
+

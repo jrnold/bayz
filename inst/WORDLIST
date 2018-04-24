@@ -29,3 +29,8 @@ Vehtari
 waic
 WAIC
 warmup
+VignetteEncoding
+VignetteEngine
+VignetteIndexEntry
+knitr
+rmarkdown

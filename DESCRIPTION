@@ -26,6 +26,9 @@ Suggests:
   spelling,
   broom,
   testthat,
-  covr
+  covr,
+    knitr,
+    rmarkdown
 RoxygenNote: 6.0.1
 Language: en-US
+VignetteBuilder: knitr

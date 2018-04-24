@@ -1,0 +1,47 @@
+---
+title: "Introduction"
+author: "Jeffrey B. Arnold"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r}
+library("bayz")
+```
+
+
+# Post-processing Stan Results
+
+The function `with_mcmc_iter` can be used to post-process the results of `stanfit` objects by evaluating expressions within 
+each iteration.
+
+```{r message=FALSE,results='hide',warning=FALSE}
+library(rstan)
+scode <- "
+parameters {
+  real y[2]; 
+} 
+model {
+  y[1] ~ normal(0, 1);
+  y[2] ~ double_exponential(0, 2);
+} 
+"
+fit1 <- stan(model_code = scode, iter = 10, verbose = FALSE,
+             refresh = -1)
+```
+
+```{r}
+with_mcmc_iter(fit1, sum(y))
+```
+
