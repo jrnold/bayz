@@ -20,7 +20,7 @@
 #'
 #' @export
 with_mcmc_iter <- function(object, ...) {
-  UseMethod("eval_stanfit")
+  UseMethod("with_mcmc_iter")
 }
 
 #' @importFrom rlang UQS eval_tidy enquo base_env
