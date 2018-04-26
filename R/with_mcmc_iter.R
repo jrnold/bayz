@@ -44,3 +44,8 @@ with_mcmc_iter.stanfit <- function(object, expr, permuted = FALSE,
   })
 }
 
+#' @rdname with_mcmc_iter
+#' @export
+with_mcmc_iter.stanreg <- function(object, ...) {
+  with_mcmc_iter.stanfit(object[["stanfit"]], ...)
+}

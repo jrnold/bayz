@@ -3,6 +3,7 @@
 S3method(as_data_frame,stanfit_summary)
 S3method(print,stanfit_summary)
 S3method(with_mcmc_iter,stanfit)
+S3method(with_mcmc_iter,stanreg)
 export(augment.loo)
 export(check_div)
 export(check_energy)

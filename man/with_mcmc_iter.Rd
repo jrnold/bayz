@@ -3,12 +3,15 @@
 \name{with_mcmc_iter}
 \alias{with_mcmc_iter}
 \alias{with_mcmc_iter.stanfit}
+\alias{with_mcmc_iter.stanreg}
 \title{Evaluate expression within s Stan iteration}
 \usage{
 with_mcmc_iter(object, ...)
 
 \method{with_mcmc_iter}{stanfit}(object, expr, permuted = FALSE,
   inc_warmup = FALSE, data = list(), env = rlang::base_env(), ...)
+
+\method{with_mcmc_iter}{stanreg}(object, ...)
 }
 \arguments{
 \item{object}{An object.}
