@@ -1,4 +1,4 @@
-#' Evaluate expression within s Stan iteration
+#' Evaluate expression within a Stan iteration
 #'
 #' Evaluate an expression on each iteration of \link[=stan]{Stan} output.
 #' This makes it easier to post-process Stan output because the expression is
@@ -27,11 +27,11 @@ with_mcmc_iter <- function(object, ...) {
 #' @importFrom rlang new_data_mask
 #' @rdname with_mcmc_iter
 #' @export
-with_mcmc_iter.stanfit <- function(object, expr, permuted = FALSE,
+with_mcmc_iter.stanfit <- function(object, expr,
                                    inc_warmup = FALSE, data = list(),
                                    env = rlang::base_env(), ...) {
   data <- as_environment(data)
-  pars <- rstan::extract(object, permuted = permuted, inc_warmup = inc_warmup)
+  pars <- rstan::extract(object, permuted = FALSE, inc_warmup = inc_warmup)
   expr <- enquo(expr)
   unflattener <- unflatten_pars(object)
   map(purrr::array_branch(pars, 1:2), function(x) {

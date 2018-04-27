@@ -4,12 +4,12 @@
 \alias{with_mcmc_iter}
 \alias{with_mcmc_iter.stanfit}
 \alias{with_mcmc_iter.stanreg}
-\title{Evaluate expression within s Stan iteration}
+\title{Evaluate expression within a Stan iteration}
 \usage{
 with_mcmc_iter(object, ...)
 
-\method{with_mcmc_iter}{stanfit}(object, expr, permuted = FALSE,
-  inc_warmup = FALSE, data = list(), env = rlang::base_env(), ...)
+\method{with_mcmc_iter}{stanfit}(object, expr, inc_warmup = FALSE,
+  data = list(), env = rlang::base_env(), ...)
 
 \method{with_mcmc_iter}{stanreg}(object, ...)
 }
@@ -22,12 +22,6 @@ with_mcmc_iter(object, ...)
 This uses \code{\link[rlang]{eval_tidy}}
 to evaluate the expression with the contents of \code{data} and the
 current iteration's parameters as a \link[=as_data_mask]{data mask}.}
-
-\item{permuted}{A logical scalar indicating whether the draws
-    after the \emph{warmup} period in each chain should be \emph{permuted} and 
-    \emph{merged}. If \code{FALSE}, the original order is kept. For each 
-    \code{stanfit} object, the permutation is fixed (i.e., extracting samples 
-    a second time will give the same sequence of iterations).}
 
 \item{inc_warmup}{A logical scalar indicating whether to include
     the warmup draws. This argument is only relevant if \code{permuted} is 

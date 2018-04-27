@@ -6,19 +6,32 @@
 #'   This is intended to be used with \code{\link{relist}} to convert a vector.
 #'
 #' @noRd
-create_skeleton <- function(object) {
-  pars <- object@model_pars
-  dims <- object@par_dims
-  lst <- purrr::map(dims, function(d) {
-    if (length(d) < 1) {
-      0
-    } else {
-      array(0, dim = d)
-    }
-  })
-  lst
+create_skeleton <- function(object, ...) {
+  UseMethod("create_skeleton")
 }
 
+create_skeleton.stanreg <- function(object, ...) {
+  create_skeleton.stanfit(object[["stanfit"]])
+}
+
+create_skeleton.stanfit <- function(object, ...) {
+  pars <- object@model_pars
+  dims <- object@par_dims
+  create_skeleton.list(dims, pars = pars)
+}
+
+dim2array <- function(d) {
+  if (length(d) < 1) {
+    0
+  } else {
+    array(0, dim = d)
+  }
+}
+
+create_skeleton.list <- function(object, pars = NULL, ...) {
+  lst <- purrr::map(object, dim2array)
+  lst
+}
 
 #' Unflatten Stan parameters
 #'
@@ -34,6 +47,7 @@ create_skeleton <- function(object) {
 #' @export
 unflatten_pars <-  function(object) {
   skeleton <- create_skeleton(object)
+  rm(object)
   function(x) {
     lst <- utils::relist(x, skeleton)
     for (i in seq_along(skeleton)) {
