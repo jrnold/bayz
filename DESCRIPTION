@@ -1,7 +1,7 @@
 Package: bayz
 Type: Package
 Title: Miscellaneous Bayesian functions
-Version: 0.0.1.9000
+Version: 0.0.2
 Description: Miscellaneous Bayesian-related functions.
 License: MIT + file LICENSE
 Encoding: UTF-8
