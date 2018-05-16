@@ -36,13 +36,9 @@
 #' @export
 dhsplus <- function(x, tau = 1, location = 0) {
   x <- (x - location) / tau
-  if (x == 0) {
-    Inf
-  } else {
-    lb <- 1 / (base::pi ^ 2 * sqrt(2 * base::pi)) * log(1 + 4 / x ^ 2)
-    ub <- 1 / (base::pi ^ 2 * abs(x))
-    0.5 * (lb + ub)
-  }
+  lb <- 1 / (base::pi ^ 2 * sqrt(2 * base::pi)) * log(1 + 4 / x ^ 2)
+  ub <- 1 / (base::pi ^ 2 * abs(x))
+  0.5 * (lb + ub)
 }
 
 #' @export
