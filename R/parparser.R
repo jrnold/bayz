@@ -31,15 +31,17 @@ expand_grid_dim <- function(d, colmajor = TRUE) {
 #' @param x \code{character} Parameter name.
 #' @param d \code{integer} Dimension of the array.
 #' @param pre \code{character} String to put before indices.
-#' @param sep \code{character} String used to seperate indices.
+#' @param sep \code{character} String used to separate indices.
 #' @param post \code{character} String to put after indices.
 #' @param colmajor \code{logical} Order indexes by column
 #'   (\code{TRUE}) or row (\code{FALSE}).
+#'
 #' @return \code{character} vector of flat parameter names.
 #'
 #' @examples
 #' create_stan_parnames("alpha", c(1, 2))
 #' create_parnames("alpha", c(1, 2), "_", "_", "")
+#'
 #' @export
 create_parnames <- function(x, d, pre="[", sep=",", post="]",
                             colmajor = TRUE) {
@@ -71,7 +73,7 @@ create_bugs_parnames <- function(x, d) {
 #'
 #' @param x \code{character} vector with flat parameter names.
 #' @param pre \code{character} Pattern between parameter name and indices.
-#' @param sep \code{character} Pattern seperating each index.
+#' @param sep \code{character} Pattern separating each index.
 #' @param post \code{character} Pattern following the indices.
 #' @return A data frame with columns: `\code{paramname}`, `\code{parameter}`, and
 #'  `\code{dim_1}`, `\code{dim_2}`, ....

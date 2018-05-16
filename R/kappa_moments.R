@@ -1,6 +1,6 @@
 #' Moments for shrinkage and number of effective parameters
 #'
-#' Means and variances for the shinkage parameter, \eqn{kappa}, and
+#' Means and variances for the shrinkage parameter, \eqn{kappa}, and
 #' the number of effective parameters, \eqn{m_{eff}}, in regression
 #' problems using scale-mixture of normal shrinkage priors.
 #'
@@ -23,7 +23,7 @@
 #' }
 #'
 #' @param tau Numeric. The global scale parameter.
-#' @param sigma Numeric. The observation disturbance scale paramter.
+#' @param sigma Numeric. The observation disturbance scale parameter.
 #' @param n Integer. The number of observations.
 #' @param D Integer. The number of parameters.
 #' @return

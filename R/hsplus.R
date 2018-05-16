@@ -26,8 +26,10 @@
 #' }
 #'
 #' @references
-#' Bhadra, Anindya; Datta, Jyotishka; Polson, Nicholas G.; Willard, Brandon. The Horseshoe+ Estimator of Ultra-Sparse Signals. Bayesian Anal., advance publication, 22 September 2016. doi: 10.1214/16-BA1028. http://projecteuclid.org/euclid.ba/1474572263
-#'
+#' Bhadra, A., Datta, J., Polson, N. G., Willard, B. (2016)
+#'    \dQuote{The Horseshoe+ Estimator of Ultra-Sparse Signals}.
+#'    \emph{Bayesian Analysis},
+#'    \href{https://dx.doi.org/10.1214/16-BA1028}{doi:10.1214/16-BA1028}
 #' @param x A numeric vector of quantiles
 #' @param n Number of samples to draw
 #' @param tau numeric vector. The scale parameter

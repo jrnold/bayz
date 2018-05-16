@@ -17,7 +17,7 @@ pars_bugs_parnames(x)
 
 \item{pre}{\code{character} Pattern between parameter name and indices.}
 
-\item{sep}{\code{character} Pattern seperating each index.}
+\item{sep}{\code{character} Pattern separating each index.}
 
 \item{post}{\code{character} Pattern following the indices.}
 }

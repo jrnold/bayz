@@ -22,7 +22,9 @@
 #' }
 #'
 #' @references
-#' Carlos M. Carvalho, Nicholas G. Polson, James G. Scott; The horseshoe estimator for sparse signals. Biometrika 2010; 97 (2): 465-480. doi: 10.1093/biomet/asq017
+#' Carvalho, C. M., Polson, N. G., Scott, J. G. (2010)
+#'    \dQuote{The horseshoe estimator for sparse signals}. \emph{Biometrika}
+#'    \href{https://dx.doi.org/10.1093/biomet/asq017}{doi:10.1093/biomet/asq017}.
 #'
 #' @param x A numeric vector of quantiles
 #' @param n Number of samples to draw

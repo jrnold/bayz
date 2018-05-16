@@ -19,7 +19,7 @@ create_bugs_parnames(x, d)
 
 \item{pre}{\code{character} String to put before indices.}
 
-\item{sep}{\code{character} String used to seperate indices.}
+\item{sep}{\code{character} String used to separate indices.}
 
 \item{post}{\code{character} String to put after indices.}
 
@@ -36,4 +36,5 @@ names for the unlisted parameters in the style of Stan or BUGS.
 \examples{
 create_stan_parnames("alpha", c(1, 2))
 create_parnames("alpha", c(1, 2), "_", "_", "")
+
 }
