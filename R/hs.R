@@ -12,13 +12,13 @@
 #'
 #' There is no closed form representation of the density, but it is bounded by,
 #' \deqn{
-#' \frac{1}{\pi^2 \sqrt{2 \pi}} \log \left( 1 + \frac{4}{\theta^2} \right)
-#' < p_{HS+}(\theta)
-#' \leq \frac{1}{\pi^2 | |\theta|}
+#' \frac{K}{2} \log \left( 1 + \frac{4}{\theta^2} \right)
+#' < p_{HS}(\theta)
+#' \leq K \log \left(1 + \frac{2}{\theta^2}} \right)
 #' }{
-#' 1 / (pi^2 * sqrt(2 pi)) * log(1 + 4 / theta^2)
-#' < p_HS+ (theta)
-#' <=  1 / (pi^2 * abs(theta))
+#' (K / 2) * log(1 + 4 / theta^2)
+#' < p_HS (theta)
+#' < K log (1 + 2 / theta^2)
 #' }
 #'
 #' @references
@@ -35,8 +35,8 @@
 dhs <- function(x, tau = 1, location = 0) {
   x <- (x - location) / tau
   K <- 1 / sqrt(2 * base::pi ^ 3)
-  lb <- 0.5 * K * (1 + 0.25 * x ^ 2)
-  ub <- K * log(1 + 0.5 * x ^ 2)
+  lb <- 0.5 * K * log(1 + 4 / x ^ 2)
+  ub <- K * log(1 + 2 / x ^ 2)
   0.5 * (lb + ub)
 }
 
