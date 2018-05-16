@@ -34,14 +34,10 @@
 #' @export
 dhs <- function(x, tau = 1, location = 0) {
   x <- (x - location) / tau
-  if (x == 0) {
-    Inf
-  } else {
-    K <- 1 / sqrt(2 * base::pi ^ 3)
-    lb <- 0.5 * K * (1 + 0.25 * x ^ 2)
-    ub <- K * log(1 + 0.5 * x ^ 2)
-    0.5 * (lb + ub)
-  }
+  K <- 1 / sqrt(2 * base::pi ^ 3)
+  lb <- 0.5 * K * (1 + 0.25 * x ^ 2)
+  ub <- K * log(1 + 0.5 * x ^ 2)
+  0.5 * (lb + ub)
 }
 
 #' @export
